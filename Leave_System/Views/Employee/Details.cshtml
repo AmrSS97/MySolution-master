@@ -1,0 +1,41 @@
+﻿@model Leave_System.Models.EmployeeVM
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>EmployeeListVM</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+           Full Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt class = "col-sm-2">
+          Email Address
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+          Birth Date
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+        <dt class = "col-sm-2">
+          Gender
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GenderName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

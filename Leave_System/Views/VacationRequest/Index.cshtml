@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Leave_System.Models.VacationRequestVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Vacation Requests</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Employee Name
+            </th>
+            <th>
+                Vacation Type
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VacationTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @if(item.Status == false)
+                    {
+                        <span>Pending</span>
+                    }
+                    else
+                    {
+                        <span>Approved</span>
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { onclick = "return confirm('Are you sure you want to delete?');" }) |
+                    @Html.ActionLink("Review", "Review", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

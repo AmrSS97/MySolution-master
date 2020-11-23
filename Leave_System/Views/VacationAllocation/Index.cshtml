@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Leave_System.Models.VacationAllocationVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Vacation Allocations</h1>
+
+<p>
+    
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                Employee Name
+            </th>
+            <th>
+                Vacation Type
+            </th>
+            <th>
+               Used
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VacationTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Used)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
